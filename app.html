@@ -6,48 +6,94 @@
 <meta name="robots" content="noindex,nofollow">
 <title>Área de Membros · Cardápio Seca Tudo</title>
 <style>
-:root{--green:#1f9d57;--green-d:#157a43;--ink:#223027;--muted:#6b7a70;--bg:#f3f8f4;--card:#fff;--line:#e3ece6;--gold:#E0A458}
+:root{--green:#1f9d57;--green-d:#157a43;--ink:#223027;--muted:#6b7a70;--bg:#f3f8f4;--card:#fff;--line:#e3ece6;--gold:#E0A458;--ai:#6d3bef;--ai-d:#5a2fd0}
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
 img{max-width:100%;display:block}
-.wrap{max-width:860px;margin:0 auto;padding:0 16px}
+.wrap{max-width:900px;margin:0 auto;padding:0 16px}
+/* LOGIN */
 #login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;background:linear-gradient(160deg,#eaf6ee,#f3f8f4)}
 .card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 12px 40px rgba(31,157,87,.12);padding:30px 26px;width:100%;max-width:400px}
 .logo{display:flex;align-items:center;gap:9px;justify-content:center;font-weight:900;font-size:19px;color:var(--green-d)}
 .logo .emj{font-size:24px}
 .sub{text-align:center;color:var(--muted);font-size:13.5px;margin:4px 0 20px}
 label{display:block;font-weight:700;font-size:13px;margin:12px 0 5px}
-input{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:11px;font-size:15px;outline:none}
-input:focus{border-color:var(--green)}
+input,select,textarea{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:11px;font-size:15px;outline:none;font-family:inherit;background:#fff}
+input:focus,select:focus,textarea:focus{border-color:var(--green)}
 .btn{width:100%;margin-top:18px;padding:13px;background:var(--green);color:#fff;border:0;border-radius:11px;font-weight:800;font-size:15.5px;cursor:pointer}
-.btn:hover{background:var(--green-d)}.btn[disabled]{opacity:.6}
+.btn:hover{background:var(--green-d)}.btn[disabled]{opacity:.6;cursor:default}
+.btn.ai{background:var(--ai)}.btn.ai:hover{background:var(--ai-d)}
+.btn.ghost{background:#eef4f0;color:var(--ink)}
 .msg{margin-top:12px;font-size:13px;text-align:center;min-height:18px}.msg.err{color:#c0392b}
 .hint{margin-top:16px;font-size:12px;color:var(--muted);text-align:center}.hint a{color:var(--green-d);font-weight:700}
 #app{display:none}
-.topbar{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
-.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.topbar{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
 .logout{background:#f0f4f1;border:1px solid var(--line);color:var(--ink);font-weight:700;font-size:13px;padding:8px 14px;border-radius:9px;cursor:pointer}
-.hero{padding:24px 0 6px}.hero h1{font-size:22px;color:var(--green-d)}.hero p{color:var(--muted);font-size:14px;margin-top:4px}
-.tip{background:#fff8ea;border:1px solid #f0e2bf;border-radius:12px;padding:11px 15px;margin-top:12px;font-size:13px;color:#8a6d2f}
-.catname{font-weight:800;font-size:15px;color:var(--green-d);margin:24px 0 10px;display:flex;align-items:center;gap:8px}
+/* HERO NUTRI */
+.nhero{background:linear-gradient(135deg,#6d3bef,#8b5cf6);color:#fff;border-radius:18px;padding:20px 22px;margin:18px 0 6px;box-shadow:0 10px 30px rgba(109,59,239,.25)}
+.nhero h1{font-size:22px;font-weight:900;display:flex;align-items:center;gap:8px}
+.nhero p{font-size:14px;opacity:.95;margin-top:5px}
+.trial{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:6px 13px;font-size:13px;font-weight:800;margin-top:12px}
+.trial.exp{background:#fff;color:var(--ai-d)}
+/* TABS */
+.tabs{display:flex;gap:6px;overflow-x:auto;margin:16px 0 4px;scrollbar-width:none}.tabs::-webkit-scrollbar{display:none}
+.tab{flex:0 0 auto;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:9px 15px;font-weight:800;font-size:13.5px;color:var(--muted);cursor:pointer;white-space:nowrap}
+.tab.on{background:var(--green);color:#fff;border-color:var(--green)}
+.tab.on.ai{background:var(--ai);border-color:var(--ai)}
+.view{display:none;padding:14px 0 70px}.view.on{display:block}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin-bottom:14px}
+.panel h2{font-size:17px;color:var(--ink);margin-bottom:4px}
+.panel .s{color:var(--muted);font-size:13.5px;margin-bottom:12px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(max-width:560px){.row2{grid-template-columns:1fr}}
+.loading{padding:40px;text-align:center;color:var(--muted)}.spin{display:inline-block;width:26px;height:26px;border:3px solid #dceee3;border-top-color:var(--ai);border-radius:50%;animation:s 1s linear infinite}@keyframes s{to{transform:rotate(360deg)}}
+/* PLAN */
+.daytabs{display:flex;gap:6px;overflow-x:auto;margin-bottom:12px;scrollbar-width:none}.daytabs::-webkit-scrollbar{display:none}
+.dtab{flex:0 0 auto;background:#f0ece0;border:0;border-radius:9px;padding:7px 12px;font-weight:800;font-size:12.5px;color:#8a7a52;cursor:pointer;white-space:nowrap}
+.dtab.on{background:var(--gold);color:#fff}
+.meal{border:1px solid var(--line);border-radius:13px;padding:14px;margin-bottom:10px}
+.meal .tag{font-size:11px;font-weight:800;color:var(--ai);text-transform:uppercase;letter-spacing:.04em}
+.meal h3{font-size:15.5px;margin:3px 0 4px}
+.meal .desc{color:var(--muted);font-size:13.5px}
+.macros{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0;font-size:12px;font-weight:700;color:var(--green-d)}
+.macros span{background:#eaf6ee;padding:3px 9px;border-radius:999px}
+.ing{font-size:13px;color:#3a483f;margin-top:6px}.ing b{color:var(--ink)}
+.seercv{background:none;border:1px solid var(--ai);color:var(--ai);font-weight:800;font-size:12.5px;padding:7px 12px;border-radius:9px;cursor:pointer;margin-top:8px}
+.rsteps{margin-top:10px;background:#faf8ff;border:1px solid #ece4ff;border-radius:10px;padding:12px}
+.rsteps ol{margin:0 0 0 18px}.rsteps li{font-size:13.5px;margin-bottom:6px}
+.rsteps .tp{margin-top:8px;font-size:12.5px;color:var(--ai-d)}
+.shop{columns:2;font-size:13px}@media(max-width:560px){.shop{columns:1}}
+.shop div{padding:3px 0;break-inside:avoid}
+/* CHAT */
+#chatbox{height:46vh;min-height:300px;overflow-y:auto;border:1px solid var(--line);border-radius:12px;padding:14px;background:#faf8ff;display:flex;flex-direction:column;gap:9px}
+.bub{max-width:85%;padding:10px 13px;border-radius:14px;font-size:14px;white-space:pre-wrap}
+.bub.u{align-self:flex-end;background:var(--ai);color:#fff;border-bottom-right-radius:4px}
+.bub.a{align-self:flex-start;background:#fff;border:1px solid #ece4ff;border-bottom-left-radius:4px}
+.chatform{display:flex;gap:8px;margin-top:10px}.chatform input{flex:1}.chatform .btn{width:auto;margin:0;padding:12px 18px}
+/* ANALYZE */
+.ares{margin-top:12px;background:#eaf6ee;border:1px solid #bfe6cd;border-radius:12px;padding:14px;font-size:14px}
+.ares .big{font-size:26px;font-weight:900;color:var(--green-d)}
+/* BOOKS */
+.catname{font-weight:800;font-size:15px;color:var(--green-d);margin:18px 0 10px}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 @media(max-width:600px){.grid{grid-template-columns:1fr}}
-.book{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;cursor:pointer;display:flex;align-items:center;gap:13px;transition:.12s}
+.book{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:15px;cursor:pointer;display:flex;align-items:center;gap:12px;transition:.12s}
 .book:hover{box-shadow:0 6px 18px rgba(31,157,87,.12);transform:translateY(-1px)}
 .book.soon{opacity:.6;cursor:default}
-.book .ic{font-size:30px}.book .t{font-weight:700;font-size:14.5px;flex:1}
+.book .ic{font-size:28px}.book .t{font-weight:700;font-size:14px;flex:1}
 .book .badge{font-size:10.5px;font-weight:800;color:var(--gold);background:#fff6e2;padding:3px 8px;border-radius:999px}
-.loading{padding:50px;text-align:center;color:var(--muted)}.spin{display:inline-block;width:26px;height:26px;border:3px solid #dceee3;border-top-color:var(--green);border-radius:50%;animation:s 1s linear infinite}@keyframes s{to{transform:rotate(360deg)}}
-#reader{display:none;padding:18px 0 60px}
-#reader .back{background:none;border:0;color:var(--green-d);font-weight:700;font-size:14px;cursor:pointer;padding:8px 0;display:inline-flex;gap:6px;align-items:center}
-.rbook{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 24px;margin-top:10px}
-.rbook h1{font-size:24px;color:var(--green-d);margin-bottom:6px}
-.rbook .rcat{font-size:12.5px;color:var(--muted);font-weight:700;margin-bottom:18px}
-.rbook h3{font-size:17px;color:var(--ink);margin:22px 0 8px;padding-top:4px;border-top:1px solid var(--line)}
+#reader{display:none;padding:14px 0 70px}
+#reader .back{background:none;border:0;color:var(--green-d);font-weight:700;font-size:14px;cursor:pointer;padding:8px 0}
+.rbook{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:24px;margin-top:10px}
+.rbook h1{font-size:22px;color:var(--green-d);margin-bottom:6px}
+.rbook .rcat{font-size:12.5px;color:var(--muted);font-weight:700;margin-bottom:16px}
+.rbook h3{font-size:16px;color:var(--ink);margin:20px 0 8px;padding-top:4px;border-top:1px solid var(--line)}
 .rbook p{margin:0 0 12px;font-size:15px;color:#2d3a31}
-.rbook .print{margin-top:20px}
-.wa{position:fixed;right:14px;bottom:14px;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;text-decoration:none;box-shadow:0 6px 16px rgba(0,0,0,.2)}
-@media print{.topbar,.wa,#reader .back,.rbook .print{display:none!important}.rbook{border:0;padding:0}}
+.wa{position:fixed;right:14px;bottom:14px;width:50px;height:50px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:25px;text-decoration:none;box-shadow:0 6px 16px rgba(0,0,0,.2);z-index:30}
+.lock{text-align:center;padding:30px 16px}
+.lock .em{font-size:40px}.lock h2{color:var(--ai-d);margin:8px 0}
+@media print{.topbar,.wa,.tabs,.nhero,#reader .back,.rbook .print{display:none!important}.rbook{border:0;padding:0}}
 </style>
 </head>
 <body>
@@ -73,14 +119,69 @@ input:focus{border-color:var(--green)}
     <div class="logo"><span class="emj">🥗</span> Cardápio Seca Tudo</div>
     <button class="logout" id="btnLogout">Sair</button>
   </div></div>
-  <div class="wrap">
-    <div id="list">
-      <div class="hero"><h1>Bem-vindo(a)! 👋</h1><p>Toda a sua biblioteca em um só lugar. Clique num material pra ler.</p>
-        <div class="tip">💡 Comece pelo <b>Fit Fuel</b> e pelos <b>Pratos Leves</b> pra montar seu dia. Conteúdo novo entra sempre.</div></div>
+
+  <div class="wrap" id="main">
+    <div class="nhero">
+      <h1>🤖 Nutri IA — sua nutricionista no bolso</h1>
+      <p>Monte seu cardápio de 7 dias feito pra você, tire dúvidas no chat e analise seus pratos por foto.</p>
+      <div id="trialBadge" class="trial">⏳ carregando...</div>
+    </div>
+
+    <div class="tabs">
+      <button class="tab on ai" data-tab="plan">🍽️ Meu Plano</button>
+      <button class="tab" data-tab="chat">💬 Nutricionista IA</button>
+      <button class="tab" data-tab="analyze">📸 Analisar Prato</button>
+      <button class="tab" data-tab="books">📚 Livros de Receitas</button>
+    </div>
+
+    <!-- PLAN / ONBOARDING -->
+    <div class="view on" id="view-plan">
+      <div id="planArea"><div class="loading"><div class="spin"></div></div></div>
+    </div>
+
+    <!-- CHAT -->
+    <div class="view" id="view-chat">
+      <div class="panel">
+        <h2>💬 Fale com a Nutricionista IA</h2>
+        <div class="s">Pergunte sobre receitas, substituições, o que comer, como secar mais rápido…</div>
+        <div id="chatGate"></div>
+        <div id="chatUI" style="display:none">
+          <div id="chatbox"></div>
+          <form class="chatform" id="chatForm">
+            <input id="chatInput" placeholder="Digite sua pergunta..." autocomplete="off">
+            <button class="btn ai" id="chatSend" type="submit">Enviar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANALYZE -->
+    <div class="view" id="view-analyze">
+      <div class="panel">
+        <h2>📸 Analisar um prato</h2>
+        <div class="s">Manda a foto da sua refeição (ou descreve) que a IA estima calorias e macros.</div>
+        <div id="analyzeGate"></div>
+        <div id="analyzeUI" style="display:none">
+          <label>Foto do prato</label>
+          <input id="photoInput" type="file" accept="image/*" capture="environment">
+          <div style="text-align:center;color:var(--muted);font-size:12px;margin:8px 0">— ou —</div>
+          <label>Descreva o que comeu</label>
+          <textarea id="descInput" rows="2" placeholder="Ex: 2 ovos mexidos, 1 pão integral e café preto"></textarea>
+          <button class="btn ai" id="btnAnalyze" type="button">Analisar</button>
+          <div id="analyzeOut"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOOKS -->
+    <div class="view" id="view-books">
+      <div class="panel" style="padding:14px 18px"><div class="s" style="margin:0">💡 Sua biblioteca de apoio: 13 livros completos de receitas, treinos e mindset pra turbinar o seu plano.</div></div>
       <div id="catsWrap"><div class="loading"><div class="spin"></div></div></div>
     </div>
+
+    <!-- READER -->
     <div id="reader">
-      <button class="back" id="btnBack">← Voltar pra biblioteca</button>
+      <button class="back" id="btnBack">← Voltar</button>
       <div class="rbook" id="rbook"></div>
     </div>
   </div>
@@ -93,57 +194,208 @@ input:focus{border-color:var(--green)}
 const SB_URL="https://nwpoweamwnjqbgnwpusq.supabase.co";
 const SB_ANON="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53cG93ZWFtd25qcWJnbndwdXNxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODExMTM1NTQsImV4cCI6MjA5NjY4OTU1NH0.X4wYz5hO-zB7Lxiy1Tl-t38Mp1n-c978L-iw7JMWYNQ";
 const READ=SB_URL+"/functions/v1/cardapio-read";
+const NI=SB_URL+"/functions/v1/nutri-ia";
 const WA="https://wa.me/13056849224?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20com%20o%20acesso%20ao%20Card%C3%A1pio%20Seca%20Tudo.";
+const ASSINA="https://pay.cakto.com.br/rjy7jee_920129";
 document.getElementById('waHelp').href=WA; document.getElementById('waFloat').href=WA;
 const sb=supabase.createClient(SB_URL,SB_ANON,{auth:{persistSession:true,autoRefreshToken:true}});
 const $=(id)=>document.getElementById(id);
-let TOKEN="";
+let TOKEN="", TRIAL={daysLeft:15,status:'trial',locked:false}, PLAN=null, booksLoaded=false, curDay=0;
+
+async function ni(body){const r=await fetch(NI,{method:'POST',headers:{'Authorization':'Bearer '+TOKEN,'apikey':SB_ANON,'Content-Type':'application/json'},body:JSON.stringify(body)});return r.json();}
+async function rd(body){const r=await fetch(READ,{method:'POST',headers:{'Authorization':'Bearer '+TOKEN,'apikey':SB_ANON,'Content-Type':'application/json'},body:JSON.stringify(body)});return r.json();}
 
 async function showApp(session){
   TOKEN=session.access_token;
   $('login').style.display='none'; $('app').style.display='block';
-  loadList();
+  const st=await ni({action:'status'});
+  if(st&&st.ok){TRIAL={daysLeft:st.daysLeft,status:st.status,locked:st.locked};}
+  renderTrial();
+  loadPlan();
 }
-async function api(bodyObj){
-  const r=await fetch(READ,{method:'POST',headers:{'Authorization':'Bearer '+TOKEN,'apikey':SB_ANON,'Content-Type':'application/json'},body:JSON.stringify(bodyObj||{})});
-  return r.json();
+function renderTrial(){
+  const b=$('trialBadge');
+  if(TRIAL.status==='active'){b.className='trial';b.innerHTML='✅ Assinante ativo — acesso liberado';}
+  else if(TRIAL.locked){b.className='trial exp';b.innerHTML='🔒 Seu teste grátis acabou — assine por R$14,99/mês';}
+  else{b.className='trial';b.innerHTML='🎁 Teste GRÁTIS: '+TRIAL.daysLeft+' dia'+(TRIAL.daysLeft===1?'':'s')+' restante'+(TRIAL.daysLeft===1?'':'s');}
 }
-async function loadList(){
-  $('reader').style.display='none'; $('list').style.display='block';
-  $('catsWrap').innerHTML='<div class="loading"><div class="spin"></div></div>';
-  const d=await api({action:'list'});
-  if(!d.ok){
-    let m = d.error==='no_access' ? 'Não encontramos uma compra do Cardápio Seca Tudo com esse e-mail. Se comprou com outro e-mail, fala com a gente.' : 'Não consegui carregar. Tente recarregar.';
-    $('catsWrap').innerHTML='<div class="loading">'+m+'<br><br><a href="'+WA+'" target="_blank" style="display:inline-block;background:#25D366;color:#fff;text-decoration:none;font-weight:700;padding:10px 18px;border-radius:9px">Falar no WhatsApp</a></div>'; return;
+function lockBox(){
+  return '<div class="lock"><div class="em">🔒</div><h2>Seu teste grátis de 15 dias acabou</h2>'
+    +'<p class="s" style="max-width:420px;margin:0 auto 14px">Continue com a Nutri IA montando seus cardápios, tirando dúvidas e analisando pratos — por apenas <b>R$14,99/mês</b>. Cancele quando quiser.</p>'
+    +'<a href="'+ASSINA+'" target="_blank" class="btn ai" style="display:inline-block;width:auto;padding:13px 26px;text-decoration:none">Assinar e continuar →</a>'
+    +'<p class="s" style="margin-top:12px">Seus <b>13 livros de receitas</b> continuam liberados na aba 📚.</p></div>';
+}
+
+/* ---------- TABS ---------- */
+document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on','ai'));
+  t.classList.add('on'); if(t.dataset.tab!=='books')t.classList.add('ai');
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
+  $('reader').style.display='none'; $('main').querySelectorAll('.nhero,.tabs').forEach(e=>e.style.display='');
+  $('view-'+t.dataset.tab).classList.add('on');
+  if(t.dataset.tab==='books'&&!booksLoaded)loadBooks();
+  if(t.dataset.tab==='chat')initChat();
+  if(t.dataset.tab==='analyze')initAnalyze();
+}));
+
+/* ---------- PLAN + ONBOARDING ---------- */
+const PROGRAMS={emagrecimento_moderado:'Emagrecimento Moderado',emagrecimento_acelerado:'Emagrecimento Acelerado (secar rápido)',manutencao:'Manutenção de Peso',ganho_massa:'Ganho de Massa Magra'};
+async function loadPlan(){
+  const prof=await ni({action:'get-profile'});
+  if(!prof.ok||!prof.profile||!prof.profile.onboarding_completed){ renderOnboarding(); return; }
+  const p=await ni({action:'get-plan'});
+  PLAN=p.plan||null;
+  renderPlan();
+}
+function renderOnboarding(){
+  $('planArea').innerHTML=
+  '<div class="panel"><h2>👋 Bora montar seu cardápio?</h2><div class="s">Responda rapidinho pra Nutri IA criar um plano feito pra você.</div>'
+  +'<form id="obForm">'
+  +'<div class="row2"><div><label>Seu nome</label><input name="name" required></div><div><label>Idade</label><input name="age" type="number" min="12" max="99" required></div></div>'
+  +'<div class="row2"><div><label>Sexo</label><select name="gender"><option value="feminino">Feminino</option><option value="masculino">Masculino</option></select></div><div><label>Altura (cm)</label><input name="height_cm" type="number" min="120" max="230" required></div></div>'
+  +'<div class="row2"><div><label>Peso atual (kg)</label><input name="current_weight" type="number" step="0.1" required></div><div><label>Peso desejado (kg)</label><input name="target_weight" type="number" step="0.1" required></div></div>'
+  +'<label>Seu objetivo</label><select name="program">'+Object.keys(PROGRAMS).map(k=>'<option value="'+k+'">'+PROGRAMS[k]+'</option>').join('')+'</select>'
+  +'<div class="row2"><div><label>Refeições por dia</label><select name="meals_per_day"><option>3</option><option>4</option><option selected>5</option></select></div><div><label>Alergias (opcional)</label><input name="allergies" placeholder="ex: lactose"></div></div>'
+  +'<label>Alimentos que você NÃO gosta (opcional)</label><input name="disliked_foods" placeholder="ex: jiló, fígado">'
+  +'<button class="btn ai" type="submit" id="obBtn">Salvar e gerar meu plano →</button><div class="msg" id="obMsg"></div>'
+  +'</form></div>';
+  $('obForm').addEventListener('submit',async e=>{
+    e.preventDefault();
+    const f=new FormData(e.target),prof={};f.forEach((v,k)=>prof[k]=v);
+    $('obBtn').disabled=true;$('obBtn').textContent='Salvando...';
+    const r=await ni({action:'save-profile',profile:prof});
+    if(!r.ok){$('obMsg').className='msg err';$('obMsg').textContent='Erro ao salvar. Tente de novo.';$('obBtn').disabled=false;$('obBtn').textContent='Salvar e gerar meu plano →';return;}
+    doGenerate();
+  });
+}
+async function doGenerate(){
+  if(TRIAL.locked){$('planArea').innerHTML=lockBox();return;}
+  $('planArea').innerHTML='<div class="panel"><div class="loading"><div class="spin"></div><p style="margin-top:12px">👩‍🍳 A Nutri IA está montando seu cardápio de 7 dias...<br><small>Pode levar até 1 minutinho — vale a pena!</small></p></div></div>';
+  const r=await ni({action:'generate-plan'});
+  if(r.locked){$('planArea').innerHTML=lockBox();return;}
+  if(!r.ok||!r.plan){$('planArea').innerHTML='<div class="panel"><p>Não consegui gerar agora. <button class="seercv" onclick="doGenerate()">Tentar de novo</button></p></div>';return;}
+  PLAN=r.plan; curDay=0; renderPlan();
+}
+function mealCard(key,m){
+  const labels={breakfast:'Café da manhã',snack1:'Lanche da manhã',lunch:'Almoço',snack2:'Lanche da tarde',dinner:'Jantar'};
+  const ing=(m.ingredients||[]).map(i=>'• '+i).join('<br>');
+  const id='rc_'+Math.random().toString(36).slice(2,8);
+  return '<div class="meal"><div class="tag">'+(labels[key]||key)+'</div><h3>'+(m.name||'')+'</h3>'
+    +'<div class="desc">'+(m.description||'')+'</div>'
+    +'<div class="macros"><span>🔥 '+(m.calories||0)+' kcal</span><span>P '+(m.protein||0)+'g</span><span>C '+(m.carbs||0)+'g</span><span>G '+(m.fat||0)+'g</span><span>⏱️ '+(m.prepTimeMinutes||'-')+'min</span></div>'
+    +'<div class="ing"><b>Ingredientes:</b><br>'+ing+'</div>'
+    +'<button class="seercv" onclick="verReceita(this,\''+encodeURIComponent(m.name||'')+'\',\''+encodeURIComponent(JSON.stringify(m.ingredients||[]))+'\',\''+id+'\')">👨‍🍳 Ver modo de preparo</button>'
+    +'<div class="rsteps" id="'+id+'" style="display:none"></div></div>';
+}
+window.verReceita=async function(btn,nameE,ingE,id){
+  const box=$(id);
+  if(box.style.display==='block'){box.style.display='none';btn.textContent='👨‍🍳 Ver modo de preparo';return;}
+  box.style.display='block';box.innerHTML='<div class="loading" style="padding:14px"><div class="spin"></div></div>';btn.textContent='Ocultar preparo';
+  const r=await ni({action:'recipe-detail',name:decodeURIComponent(nameE),ingredients:JSON.parse(decodeURIComponent(ingE))});
+  if(r.locked){box.innerHTML=lockBox();return;}
+  const steps=(r.steps||[]).map((s,i)=>'<li>'+s+'</li>').join('');
+  const tips=(r.tips||[]).length?'<div class="tp">💡 '+(r.tips||[]).join('<br>💡 ')+'</div>':'';
+  box.innerHTML='<b>Modo de preparo</b><ol>'+steps+'</ol>'+tips;
+};
+function renderPlan(){
+  if(!PLAN||!PLAN.days){$('planArea').innerHTML='<div class="panel"><h2>Seu cardápio personalizado</h2><div class="s">Você ainda não tem um plano. Gere o seu agora!</div><button class="btn ai" onclick="doGenerate()">✨ Gerar meu cardápio de 7 dias</button></div>';return;}
+  const days=PLAN.days;
+  let h='<div class="panel"><h2>🍽️ Seu cardápio de 7 dias</h2><div class="s">'+(PLAN.planSummary||'')+' · ~'+(PLAN.totalCaloriesPerDay||0)+' kcal/dia</div>';
+  h+='<div class="daytabs">'+days.map((d,i)=>'<button class="dtab'+(i===curDay?' on':'')+'" onclick="setDay('+i+')">'+(d.dayName||('Dia '+(d.day||i+1))).slice(0,3)+'</button>').join('')+'</div>';
+  h+='<div id="dayMeals"></div>';
+  h+='<button class="btn ghost" style="margin-top:6px" onclick="doGenerate()">🔄 Gerar um novo cardápio</button></div>';
+  if(PLAN.shoppingList&&PLAN.shoppingList.length){
+    h+='<div class="panel"><h2>🛒 Lista de compras (7 dias)</h2><div class="shop">'+PLAN.shoppingList.map(s=>'<div>• <b>'+(s.item||'')+'</b> — '+(s.quantity||'')+'</div>').join('')+'</div></div>';
   }
-  const books=d.books||[];
-  const cats={};
-  books.forEach(b=>{ (cats[b.category]=cats[b.category]||[]).push(b); });
+  $('planArea').innerHTML=h;
+  renderDay();
+}
+window.setDay=function(i){curDay=i;document.querySelectorAll('.dtab').forEach((b,x)=>b.classList.toggle('on',x===i));renderDay();};
+function renderDay(){
+  const d=PLAN.days[curDay];if(!d)return;
+  const order=['breakfast','snack1','lunch','snack2','dinner'];
+  const keys=Object.keys(d.meals||{}).sort((a,b)=>order.indexOf(a)-order.indexOf(b));
+  $('dayMeals').innerHTML=keys.map(k=>mealCard(k,d.meals[k])).join('');
+}
+
+/* ---------- CHAT ---------- */
+let chatInit=false;
+async function initChat(){
+  if(TRIAL.locked){$('chatGate').innerHTML=lockBox();$('chatUI').style.display='none';return;}
+  $('chatGate').innerHTML='';$('chatUI').style.display='block';
+  if(chatInit)return;chatInit=true;
+  const h=await ni({action:'chat-history'});
+  const box=$('chatbox');box.innerHTML='';
+  if(h.ok&&h.messages&&h.messages.length){h.messages.forEach(m=>addBub(m.role,m.content));}
+  else{addBub('assistant','Oi! 💚 Eu sou a sua Nutricionista IA. Me conta: qual sua maior dificuldade pra emagrecer hoje? Posso sugerir receitas, trocas e um caminho pra você secar comendo bem.');}
+  box.scrollTop=box.scrollHeight;
+}
+function addBub(role,txt){const b=document.createElement('div');b.className='bub '+(role==='user'?'u':'a');b.textContent=txt;$('chatbox').appendChild(b);$('chatbox').scrollTop=$('chatbox').scrollHeight;return b;}
+$('chatForm').addEventListener('submit',async e=>{
+  e.preventDefault();const inp=$('chatInput');const msg=inp.value.trim();if(!msg)return;
+  inp.value='';addBub('user',msg);$('chatSend').disabled=true;
+  const t=addBub('assistant','...');
+  const r=await ni({action:'chat',message:msg});
+  if(r.locked){t.textContent='🔒 Seu teste grátis acabou. Assine por R$14,99/mês pra continuar falando comigo 💜';}
+  else{t.textContent=r.reply||'Desculpe, não consegui responder agora.';}
+  $('chatSend').disabled=false;$('chatbox').scrollTop=$('chatbox').scrollHeight;
+});
+
+/* ---------- ANALYZE ---------- */
+function initAnalyze(){
+  if(TRIAL.locked){$('analyzeGate').innerHTML=lockBox();$('analyzeUI').style.display='none';return;}
+  $('analyzeGate').innerHTML='';$('analyzeUI').style.display='block';
+}
+$('btnAnalyze').addEventListener('click',async()=>{
+  const file=$('photoInput').files[0];const desc=$('descInput').value.trim();
+  if(!file&&!desc){$('analyzeOut').innerHTML='<div class="s" style="margin-top:10px">Mande uma foto ou descreva o prato.</div>';return;}
+  $('btnAnalyze').disabled=true;$('analyzeOut').innerHTML='<div class="loading"><div class="spin"></div></div>';
+  let body={action:'analyze'};
+  if(file){const b64=await toB64(file);body.image=b64.data;body.mime=b64.mime;}
+  else{body.text=desc;}
+  const r=await ni(body);$('btnAnalyze').disabled=false;
+  if(r.locked){$('analyzeOut').innerHTML=lockBox();return;}
+  if(!r.ok||!r.nutrition){$('analyzeOut').innerHTML='<div class="s" style="margin-top:10px">Não consegui analisar. Tenta de novo.</div>';return;}
+  const n=r.nutrition;
+  $('analyzeOut').innerHTML='<div class="ares"><div class="big">🔥 '+(n.calories||0)+' kcal</div><div class="macros"><span>Proteína '+(n.protein||0)+'g</span><span>Carbo '+(n.carbs||0)+'g</span><span>Gordura '+(n.fat||0)+'g</span></div><p style="margin-top:8px">'+(r.description||'')+'</p></div>';
+});
+function toB64(file){return new Promise(res=>{const r=new FileReader();r.onload=()=>{const s=r.result;res({mime:file.type||'image/jpeg',data:s.split(',')[1]});};r.readAsDataURL(file);});}
+
+/* ---------- BOOKS ---------- */
+async function loadBooks(){
+  booksLoaded=true;
+  const d=await rd({action:'list'});
+  if(!d.ok){$('catsWrap').innerHTML='<div class="loading">Não consegui carregar os livros.</div>';return;}
+  const books=d.books||[];const cats={};
+  books.forEach(b=>{(cats[b.category]=cats[b.category]||[]).push(b);});
   let html='';
   for(const cat of Object.keys(cats)){
     html+='<div class="catname">'+cat+'</div><div class="grid">';
-    cats[cat].forEach(b=>{
-      const ready=b.status==='done';
-      html+= ready
-        ? '<div class="book" data-slug="'+b.slug+'"><span class="ic">'+b.icon+'</span><span class="t">'+b.title+'</span><span style="color:var(--green)">›</span></div>'
-        : '<div class="book soon"><span class="ic">'+b.icon+'</span><span class="t">'+b.title+'</span><span class="badge">chegando</span></div>';
-    });
+    cats[cat].forEach(b=>{const ready=b.status==='done';
+      html+= ready?'<div class="book" data-slug="'+b.slug+'"><span class="ic">'+b.icon+'</span><span class="t">'+b.title+'</span><span style="color:var(--green)">›</span></div>'
+        :'<div class="book soon"><span class="ic">'+b.icon+'</span><span class="t">'+b.title+'</span><span class="badge">chegando</span></div>';});
     html+='</div>';
   }
   $('catsWrap').innerHTML=html;
   document.querySelectorAll('.book[data-slug]').forEach(el=>el.addEventListener('click',()=>openBook(el.getAttribute('data-slug'))));
 }
 async function openBook(slug){
-  $('list').style.display='none'; $('reader').style.display='block';
-  window.scrollTo(0,0);
+  $('main').querySelectorAll('.nhero,.tabs').forEach(e=>e.style.display='none');
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('on'));
+  $('reader').style.display='block';window.scrollTo(0,0);
   $('rbook').innerHTML='<div class="loading"><div class="spin"></div></div>';
-  const d=await api({action:'book',slug});
-  if(!d.ok||!d.book){ $('rbook').innerHTML='<div class="loading">Não consegui abrir este material.</div>'; return; }
+  const d=await rd({action:'book',slug});
+  if(!d.ok||!d.book){$('rbook').innerHTML='<div class="loading">Não consegui abrir este material.</div>';return;}
   const b=d.book;
-  $('rbook').innerHTML='<div class="rcat">'+b.icon+' '+b.category+'</div><h1>'+b.title+'</h1>'+(b.body_html||'<p>Conteúdo em preparação.</p>')+'<div class="print"><button class="btn" style="width:auto;padding:10px 20px" onclick="window.print()">🖨️ Imprimir / Salvar em PDF</button></div>';
+  $('rbook').innerHTML='<div class="rcat">'+b.icon+' '+b.category+'</div><h1>'+b.title+'</h1>'+(b.body_html||'<p>Conteúdo em preparação.</p>')+'<div class="print" style="margin-top:20px"><button class="btn" style="width:auto;padding:10px 20px" onclick="window.print()">🖨️ Imprimir / Salvar em PDF</button></div>';
 }
-$('btnBack').addEventListener('click',loadList);
+$('btnBack').addEventListener('click',()=>{
+  $('reader').style.display='none';
+  $('main').querySelectorAll('.nhero,.tabs').forEach(e=>e.style.display='');
+  $('view-books').classList.add('on');
+});
 
+/* ---------- AUTH ---------- */
 $('loginForm').addEventListener('submit',async(e)=>{
   e.preventDefault();
   const email=$('email').value.trim().toLowerCase(), senha=$('senha').value;
