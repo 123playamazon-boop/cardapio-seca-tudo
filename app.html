@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<title>Área de Membros · Cardápio Seca Tudo</title>
+<style>
+:root{--green:#1f9d57;--green-d:#157a43;--ink:#223027;--muted:#6b7a70;--bg:#f3f8f4;--card:#fff;--line:#e3ece6;--gold:#E0A458}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+img{max-width:100%;display:block}
+.wrap{max-width:860px;margin:0 auto;padding:0 16px}
+#login{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px;background:linear-gradient(160deg,#eaf6ee,#f3f8f4)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;box-shadow:0 12px 40px rgba(31,157,87,.12);padding:30px 26px;width:100%;max-width:400px}
+.logo{display:flex;align-items:center;gap:9px;justify-content:center;font-weight:900;font-size:19px;color:var(--green-d)}
+.logo .emj{font-size:24px}
+.sub{text-align:center;color:var(--muted);font-size:13.5px;margin:4px 0 20px}
+label{display:block;font-weight:700;font-size:13px;margin:12px 0 5px}
+input{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:11px;font-size:15px;outline:none}
+input:focus{border-color:var(--green)}
+.btn{width:100%;margin-top:18px;padding:13px;background:var(--green);color:#fff;border:0;border-radius:11px;font-weight:800;font-size:15.5px;cursor:pointer}
+.btn:hover{background:var(--green-d)}.btn[disabled]{opacity:.6}
+.msg{margin-top:12px;font-size:13px;text-align:center;min-height:18px}.msg.err{color:#c0392b}
+.hint{margin-top:16px;font-size:12px;color:var(--muted);text-align:center}.hint a{color:var(--green-d);font-weight:700}
+#app{display:none}
+.topbar{background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logout{background:#f0f4f1;border:1px solid var(--line);color:var(--ink);font-weight:700;font-size:13px;padding:8px 14px;border-radius:9px;cursor:pointer}
+.hero{padding:24px 0 6px}.hero h1{font-size:22px;color:var(--green-d)}.hero p{color:var(--muted);font-size:14px;margin-top:4px}
+.tip{background:#fff8ea;border:1px solid #f0e2bf;border-radius:12px;padding:11px 15px;margin-top:12px;font-size:13px;color:#8a6d2f}
+.catname{font-weight:800;font-size:15px;color:var(--green-d);margin:24px 0 10px;display:flex;align-items:center;gap:8px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media(max-width:600px){.grid{grid-template-columns:1fr}}
+.book{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;cursor:pointer;display:flex;align-items:center;gap:13px;transition:.12s}
+.book:hover{box-shadow:0 6px 18px rgba(31,157,87,.12);transform:translateY(-1px)}
+.book.soon{opacity:.6;cursor:default}
+.book .ic{font-size:30px}.book .t{font-weight:700;font-size:14.5px;flex:1}
+.book .badge{font-size:10.5px;font-weight:800;color:var(--gold);background:#fff6e2;padding:3px 8px;border-radius:999px}
+.loading{padding:50px;text-align:center;color:var(--muted)}.spin{display:inline-block;width:26px;height:26px;border:3px solid #dceee3;border-top-color:var(--green);border-radius:50%;animation:s 1s linear infinite}@keyframes s{to{transform:rotate(360deg)}}
+#reader{display:none;padding:18px 0 60px}
+#reader .back{background:none;border:0;color:var(--green-d);font-weight:700;font-size:14px;cursor:pointer;padding:8px 0;display:inline-flex;gap:6px;align-items:center}
+.rbook{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 24px;margin-top:10px}
+.rbook h1{font-size:24px;color:var(--green-d);margin-bottom:6px}
+.rbook .rcat{font-size:12.5px;color:var(--muted);font-weight:700;margin-bottom:18px}
+.rbook h3{font-size:17px;color:var(--ink);margin:22px 0 8px;padding-top:4px;border-top:1px solid var(--line)}
+.rbook p{margin:0 0 12px;font-size:15px;color:#2d3a31}
+.rbook .print{margin-top:20px}
+.wa{position:fixed;right:14px;bottom:14px;width:52px;height:52px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;text-decoration:none;box-shadow:0 6px 16px rgba(0,0,0,.2)}
+@media print{.topbar,.wa,#reader .back,.rbook .print{display:none!important}.rbook{border:0;padding:0}}
+</style>
+</head>
+<body>
+
+<section id="login">
+  <div class="card">
+    <div class="logo"><span class="emj">🥗</span> Cardápio Seca Tudo</div>
+    <div class="sub">Área de Membros</div>
+    <form id="loginForm">
+      <label for="email">Seu e-mail de compra</label>
+      <input id="email" type="email" autocomplete="username" placeholder="voce@email.com" required>
+      <label for="senha">Senha</label>
+      <input id="senha" type="password" autocomplete="current-password" placeholder="••••••••" required>
+      <button class="btn" id="btnLogin" type="submit">Entrar</button>
+      <div class="msg" id="loginMsg"></div>
+    </form>
+    <div class="hint">Primeiro acesso? Use o <b>e-mail da compra</b> e a <b>senha</b> enviada no seu WhatsApp.<br>Problemas? <a id="waHelp" href="#" target="_blank">Fala com a gente</a></div>
+  </div>
+</section>
+
+<div id="app">
+  <div class="topbar"><div class="wrap">
+    <div class="logo"><span class="emj">🥗</span> Cardápio Seca Tudo</div>
+    <button class="logout" id="btnLogout">Sair</button>
+  </div></div>
+  <div class="wrap">
+    <div id="list">
+      <div class="hero"><h1>Bem-vindo(a)! 👋</h1><p>Toda a sua biblioteca em um só lugar. Clique num material pra ler.</p>
+        <div class="tip">💡 Comece pelo <b>Fit Fuel</b> e pelos <b>Pratos Leves</b> pra montar seu dia. Conteúdo novo entra sempre.</div></div>
+      <div id="catsWrap"><div class="loading"><div class="spin"></div></div></div>
+    </div>
+    <div id="reader">
+      <button class="back" id="btnBack">← Voltar pra biblioteca</button>
+      <div class="rbook" id="rbook"></div>
+    </div>
+  </div>
+</div>
+
+<a class="wa" id="waFloat" href="#" target="_blank" title="Suporte no WhatsApp">💬</a>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/supabase-js/2.39.3/supabase.min.js"></script>
+<script>
+const SB_URL="https://nwpoweamwnjqbgnwpusq.supabase.co";
+const SB_ANON="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im53cG93ZWFtd25qcWJnbndwdXNxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODExMTM1NTQsImV4cCI6MjA5NjY4OTU1NH0.X4wYz5hO-zB7Lxiy1Tl-t38Mp1n-c978L-iw7JMWYNQ";
+const READ=SB_URL+"/functions/v1/cardapio-read";
+const WA="https://wa.me/13056849224?text=Ol%C3%A1!%20Preciso%20de%20ajuda%20com%20o%20acesso%20ao%20Card%C3%A1pio%20Seca%20Tudo.";
+document.getElementById('waHelp').href=WA; document.getElementById('waFloat').href=WA;
+const sb=supabase.createClient(SB_URL,SB_ANON,{auth:{persistSession:true,autoRefreshToken:true}});
+const $=(id)=>document.getElementById(id);
+let TOKEN="";
+
+async function showApp(session){
+  TOKEN=session.access_token;
+  $('login').style.display='none'; $('app').style.display='block';
+  loadList();
+}
+async function api(bodyObj){
+  const r=await fetch(READ,{method:'POST',headers:{'Authorization':'Bearer '+TOKEN,'apikey':SB_ANON,'Content-Type':'application/json'},body:JSON.stringify(bodyObj||{})});
+  return r.json();
+}
+async function loadList(){
+  $('reader').style.display='none'; $('list').style.display='block';
+  $('catsWrap').innerHTML='<div class="loading"><div class="spin"></div></div>';
+  const d=await api({action:'list'});
+  if(!d.ok){
+    let m = d.error==='no_access' ? 'Não encontramos uma compra do Cardápio Seca Tudo com esse e-mail. Se comprou com outro e-mail, fala com a gente.' : 'Não consegui carregar. Tente recarregar.';
+    $('catsWrap').innerHTML='<div class="loading">'+m+'<br><br><a href="'+WA+'" target="_blank" style="display:inline-block;background:#25D366;color:#fff;text-decoration:none;font-weight:700;padding:10px 18px;border-radius:9px">Falar no WhatsApp</a></div>'; return;
+  }
+  const books=d.books||[];
+  const cats={};
+  books.forEach(b=>{ (cats[b.category]=cats[b.category]||[]).push(b); });
+  let html='';
+  for(const cat of Object.keys(cats)){
+    html+='<div class="catname">'+cat+'</div><div class="grid">';
+    cats[cat].forEach(b=>{
+      const ready=b.status==='done';
+      html+= ready
+        ? '<div class="book" data-slug="'+b.slug+'"><span class="ic">'+b.icon+'</span><span class="t">'+b.title+'</span><span style="color:var(--green)">›</span></div>'
+        : '<div class="book soon"><span class="ic">'+b.icon+'</span><span class="t">'+b.title+'</span><span class="badge">chegando</span></div>';
+    });
+    html+='</div>';
+  }
+  $('catsWrap').innerHTML=html;
+  document.querySelectorAll('.book[data-slug]').forEach(el=>el.addEventListener('click',()=>openBook(el.getAttribute('data-slug'))));
+}
+async function openBook(slug){
+  $('list').style.display='none'; $('reader').style.display='block';
+  window.scrollTo(0,0);
+  $('rbook').innerHTML='<div class="loading"><div class="spin"></div></div>';
+  const d=await api({action:'book',slug});
+  if(!d.ok||!d.book){ $('rbook').innerHTML='<div class="loading">Não consegui abrir este material.</div>'; return; }
+  const b=d.book;
+  $('rbook').innerHTML='<div class="rcat">'+b.icon+' '+b.category+'</div><h1>'+b.title+'</h1>'+(b.body_html||'<p>Conteúdo em preparação.</p>')+'<div class="print"><button class="btn" style="width:auto;padding:10px 20px" onclick="window.print()">🖨️ Imprimir / Salvar em PDF</button></div>';
+}
+$('btnBack').addEventListener('click',loadList);
+
+$('loginForm').addEventListener('submit',async(e)=>{
+  e.preventDefault();
+  const email=$('email').value.trim().toLowerCase(), senha=$('senha').value;
+  const btn=$('btnLogin'), msg=$('loginMsg');
+  btn.disabled=true; btn.textContent='Entrando...'; msg.textContent=''; msg.className='msg';
+  const {data,error}=await sb.auth.signInWithPassword({email,password:senha});
+  btn.disabled=false; btn.textContent='Entrar';
+  if(error){ msg.className='msg err'; msg.textContent='E-mail ou senha incorretos. Confira os dados enviados na compra.'; return; }
+  showApp(data.session);
+});
+$('btnLogout').addEventListener('click',async()=>{ await sb.auth.signOut(); location.reload(); });
+(async()=>{ const {data}=await sb.auth.getSession(); if(data&&data.session) showApp(data.session); })();
+</script>
+</body>
+</html>
