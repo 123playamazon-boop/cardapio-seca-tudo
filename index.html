@@ -8,7 +8,7 @@
 <!-- MICROSOFT CLARITY (trocar yt6y2rwpub pelo projeto novo) -->
 <script>(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script","yt6y2rwpub");</script>
 <style>
-:root{--g:#16a34a;--g2:#15803d;--ink:#0f172a;--mut:#5b6472;--line:#e9edf2;--soft:#f5f8f6;--cta:#ef4444;--cta2:#dc2626;--gold:#f59e0b}
+:root{--g:#16a34a;--g2:#15803d;--ink:#0f172a;--mut:#5b6472;--line:#e9edf2;--soft:#f5f8f6;--cta:#ef4444;--cta2:#dc2626;--gold:#f59e0b;--ai:#6d3bef;--ai2:#8b5cf6}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.55}
 img{max-width:100%;display:block}.wrap{max-width:860px;margin:0 auto;padding:0 18px}
 .ph{background:linear-gradient(135deg,#dcfce7,#bbf7d0);border:2px dashed #86efac;border-radius:16px;display:flex;align-items:center;justify-content:center;color:#15803d;font-weight:700;font-size:13px;text-align:center;padding:18px;min-height:190px}
@@ -42,13 +42,20 @@ section{padding:40px 0}.alt{background:var(--soft)}
 .guar{background:#ecfdf5;border:2px solid #bbf7d0;border-radius:20px;padding:26px;text-align:center}
 details{border-bottom:1px solid var(--line);padding:14px 0}summary{font-weight:800;cursor:pointer;font-size:16px}details p{color:var(--mut);margin:10px 0 0}
 .deliv{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;text-align:center}.deliv .ic{font-size:28px}
+.ai-wrap{background:linear-gradient(135deg,#f5f3ff,#ede9fe);border:2px solid #ddd6fe;border-radius:22px;padding:26px 22px;margin-top:6px}
+.ai-badge{display:inline-flex;align-items:center;gap:7px;background:var(--ai);color:#fff;font-weight:800;font-size:12.5px;padding:6px 14px;border-radius:999px;letter-spacing:.03em}
+.ai-wrap h2{color:#4c1d95;margin-top:12px}
+.ai-wrap .list li::before{background:#ede9fe;color:var(--ai)}
+.ai-tri{background:#fff;border:1px solid #ddd6fe;border-radius:14px;padding:14px;text-align:center}
+.ai-tri .ic{font-size:30px}.ai-tri b{display:block;margin-top:6px;font-size:14.5px}.ai-tri span{font-size:12.5px;color:var(--mut)}
+.ai-free{background:var(--ai);color:#fff;border-radius:14px;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;font-weight:800;margin-top:14px;flex-wrap:wrap;gap:6px}
 #floatbtns{position:fixed;right:14px;bottom:88px;z-index:49;display:flex;flex-direction:column;gap:10px}
 #floatbtns a{text-decoration:none;font-weight:800;font-size:13px;padding:11px 14px;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.18)}
 #fb-acc{background:#16a34a;color:#fff}#fb-wa{background:#25D366;color:#fff}
 #stkbar{position:fixed;left:0;right:0;bottom:0;background:#fff;border-top:1px solid var(--line);padding:10px 14px;display:none;z-index:48;box-shadow:0 -4px 16px rgba(0,0,0,.08)}
 #stkbar .btn{padding:13px;font-size:16px}
 .foot{background:#0b1220;color:#8b94a3;text-align:center;padding:26px;font-size:13px}
-@media(max-width:720px){h1{font-size:27px}h2{font-size:21px}.grid2,.plans,.deliv{grid-template-columns:1fr}.deliv{grid-template-columns:repeat(2,1fr)}#stkbar{display:block}.topbar{font-size:12px}}
+@media(max-width:720px){h1{font-size:27px}h2{font-size:21px}.grid2,.plans,.deliv{grid-template-columns:1fr}.deliv{grid-template-columns:repeat(2,1fr)}#stkbar{display:block}.topbar{font-size:12px}.ai-trio{grid-template-columns:1fr}}
 .bndl{border:2px solid var(--line);border-radius:18px;padding:18px;background:#fff;margin:16px 0;position:relative}
 .bndl.sel{border-color:var(--g);box-shadow:0 10px 30px rgba(22,163,74,.15)}
 .bndl-badge{position:absolute;top:-12px;left:18px;background:var(--g);color:#fff;font-weight:800;font-size:11.5px;padding:5px 12px;border-radius:999px}
@@ -56,6 +63,7 @@ details{border-bottom:1px solid var(--line);padding:14px 0}summary{font-weight:8
 .bndl-name{font-weight:900;font-size:19px}
 .bndl-pr{text-align:right;white-space:nowrap}.bndl-pr .now{display:block;font-size:30px;font-weight:900;color:var(--g2);line-height:1}.bndl-pr s{color:#b4bcc7;font-size:14px}
 .freerow{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412;border-radius:10px;padding:9px 12px;margin:7px 0;font-weight:700;font-size:13.5px;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.freerow.ai{background:#f5f3ff;border-color:#ddd6fe;color:#5b21b6}.freerow.ai s{color:#7c3aed}
 .freerow s{color:#c2410c;opacity:.75;font-weight:800;white-space:nowrap}
 .saverow{background:#dcfce7;border:1px solid #86efac;color:#15803d;border-radius:10px;padding:10px 12px;margin:10px 0 0;font-weight:900;text-align:center}
 .giftico{width:90px;flex:0 0 90px;min-height:70px;display:flex;align-items:center;justify-content:center;font-size:30px;background:#fff7ed;border:1px solid #fed7aa;border-radius:12px}
@@ -65,6 +73,7 @@ details{border-bottom:1px solid var(--line);padding:14px 0}summary{font-weight:8
 .baw .slide img{width:100%;display:block}
 .baw .slide .lab{position:absolute;top:10px;left:10px;background:rgba(5,46,22,.82);color:#fff;font-weight:800;font-size:12px;padding:5px 10px;border-radius:999px;letter-spacing:.02em}
 .bahint{text-align:center;color:var(--mut);font-size:13px;margin-top:4px}
+.ai-trio{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:16px}
 @media(min-width:720px){.baw .slide{flex:0 0 46%}}
 </style></head><body>
 
@@ -72,9 +81,9 @@ details{border-bottom:1px solid var(--line);padding:14px 0}summary{font-weight:8
 
 <!-- HERO -->
 <section><div class="wrap">
- <div class="kick">Cardápio pronto de 30 dias · +200 receitas que secam · sem passar fome</div>
+ <div class="kick">Cardápio pronto de 30 dias · +200 receitas que secam · + Nutricionista IA grátis</div>
  <h1>Dá pra emagrecer comendo pão, pizza e brigadeiro — desde que você faça a <span style="color:var(--g2)">versão que seca</span> no lugar da que engorda.</h1>
- <p class="sub">O problema nunca foi força de vontade. "Comida de dieta" é cara, sem graça e dá fome — aí você larga na 2ª semana. Aqui você não leva um "ebook": leva <b>13 livros completos</b> — as receitas que secam (café, almoço, jantar, lanche e até os docinhos), os treinos em casa, os smoothies, o planner e o mindset pra não desistir. Você come de verdade, e o ponteiro desce.</p>
+ <p class="sub">O problema nunca foi força de vontade. "Comida de dieta" é cara, sem graça e dá fome — aí você larga na 2ª semana. Aqui você não leva um "ebook": leva <b>13 livros completos</b> — as receitas que secam (café, almoço, jantar, lanche e até os docinhos), os treinos em casa, os smoothies, o planner e o mindset pra não desistir. E ainda ganha uma <b>Nutricionista com Inteligência Artificial</b> que monta seu cardápio sob medida. Você come de verdade, e o ponteiro desce.</p>
  <img src="hero-biblioteca.webp" alt="Biblioteca Completa Fitness — 13 livros para transformar sua vida" loading="eager" style="margin-top:20px;border-radius:16px;box-shadow:0 10px 30px rgba(2,6,23,.12)">
 </div></section>
 
@@ -135,6 +144,22 @@ details{border-bottom:1px solid var(--line);padding:14px 0}summary{font-weight:8
  <div style="text-align:center;margin-top:18px"><a href="#planos" class="btn">QUERO OS 13 LIVROS →</a></div>
 </div></section>
 
+<!-- NUTRI IA -->
+<section><div class="wrap">
+ <div class="ai-wrap">
+  <span class="ai-badge">🤖 EXCLUSIVO · incluído no plano Completo</span>
+  <h2>E ainda vem uma <span style="color:#6d3bef">Nutricionista com Inteligência Artificial</span> montando tudo pra você</h2>
+  <p class="sub">Chega de ficar perdida sem saber o que comer. A <b>Nutri IA</b> cria um <b>cardápio de 7 dias feito sob medida</b> — pro seu peso, sua meta, o que você gosta e o que NÃO gosta — em segundos. É como ter uma nutri no bolso, 24 horas por dia.</p>
+  <div class="ai-trio">
+   <div class="ai-tri"><div class="ic">🍽️</div><b>Cardápio sob medida</b><span>7 dias personalizados + lista de compras automática</span></div>
+   <div class="ai-tri"><div class="ic">💬</div><b>Nutricionista no chat</b><span>Tire qualquer dúvida, como numa consulta de verdade</span></div>
+   <div class="ai-tri"><div class="ic">📸</div><b>Foto do prato</b><span>Manda a foto e ela diz as calorias na hora</span></div>
+  </div>
+  <div class="ai-free"><span>🎁 15 DIAS GRÁTIS pra testar a Nutri IA</span><span>só no plano Completo</span></div>
+  <div style="text-align:center;margin-top:16px"><a href="#planos" class="btn" style="background:#6d3bef;box-shadow:0 8px 22px rgba(109,59,239,.35)">QUERO MINHA NUTRICIONISTA IA →</a></div>
+ </div>
+</div></section>
+
 <!-- BÔNUS -->
 <section><div class="wrap">
  <h2>E ainda leva os bônus de graça (valem +R$200)</h2>
@@ -143,8 +168,8 @@ details{border-bottom:1px solid var(--line);padding:14px 0}summary{font-weight:8
  <div class="bonus"><div class="giftico">🎁</div><div><b>Guia "Seca a Barriga em 7 dias"</b><span class="sub">O passo a passo pra desinchar rápido.</span></div><div class="free">R$29,90 → GRÁTIS</div></div>
  <div class="bonus"><div class="giftico">🎁</div><div><b>Lista de compras inteligente</b><span class="sub">Economize no mercado comprando certo.</span></div><div class="free">R$19,90 → GRÁTIS</div></div>
  <div class="bonus"><div class="giftico">🎁</div><div><b>50 Doces Fit pra matar a vontade</b><span class="sub">Brigadeiro, bolo e mousse que secam.</span></div><div class="free">R$34,90 → GRÁTIS</div></div>
- <div class="bonus"><div class="giftico">🎁</div><div><b>Diário de Peso + metas</b><span class="sub">Acompanhe a evolução e não desista.</span></div><div class="free">R$24,90 → GRÁTIS</div></div>
- <div class="totalbar"><span>Total em bônus</span><span>R$149,50 → R$0,00</span></div>
+ <div class="bonus"><div class="giftico">🤖</div><div><b>Nutri IA — Nutricionista por IA (15 dias grátis)</b><span class="sub">Seu cardápio personalizado + chat + análise por foto.</span></div><div class="free">R$97,00 → GRÁTIS</div></div>
+ <div class="totalbar"><span>Total em bônus</span><span>R$246,50 → R$0,00</span></div>
 </div></section>
 
 <!-- QUALIFICAÇÃO -->
@@ -163,16 +188,17 @@ details{border-bottom:1px solid var(--line);padding:14px 0}summary{font-weight:8
 <!-- VALUE STACK -->
 <section><div class="wrap" style="text-align:center">
  <h2>Soma tudo que você leva hoje</h2>
- <ul class="list" style="max-width:460px;margin:16px auto;text-align:left">
+ <ul class="list" style="max-width:480px;margin:16px auto;text-align:left">
   <li>Biblioteca Completa Fitness — 13 livros (+365 receitas, treinos em casa, mindset) — <b>R$197</b></li>
+  <li><b>Nutri IA — Nutricionista por Inteligência Artificial</b> (15 dias grátis) — <b>R$97</b></li>
   <li>Cardápio de 30 dias — R$39,90</li>
   <li>Seca a Barriga em 7 dias — R$29,90</li>
   <li>50 Doces Fit — R$34,90</li>
   <li>Lista de compras + Diário — R$44,80</li>
  </ul>
- <div class="anchor">Valor real: <s>R$346,50</s> — hoje:</div>
+ <div class="anchor">Valor real: <s>R$443,50</s> — hoje:</div>
  <div class="price">R$27</div>
- <p class="sub">no plano completo (leve tudo) · economia de +92%</p>
+ <p class="sub">no plano completo (leve tudo) · economia de +93%</p>
  <div style="margin-top:16px"><a href="#planos" class="btn big">QUERO O CARDÁPIO COMPLETO →</a></div>
 </div></section>
 
@@ -195,17 +221,18 @@ details{border-bottom:1px solid var(--line);padding:14px 0}summary{font-weight:8
 
  <div class="bndl sel">
   <div class="bndl-badge">⭐ MAIS PEDIDO · MELHOR VALOR</div>
-  <div class="bndl-top"><div><div class="bndl-name">Completa — A Biblioteca Inteira</div><div class="sub">Os 13 livros + TODOS os bônus liberados</div></div>
-   <div class="bndl-pr"><span class="now">R$27</span><s>R$346</s></div></div>
+  <div class="bndl-top"><div><div class="bndl-name">Completa — A Biblioteca Inteira + Nutri IA</div><div class="sub">Os 13 livros + TODOS os bônus + a Nutricionista IA</div></div>
+   <div class="bndl-pr"><span class="now">R$27</span><s>R$443</s></div></div>
   <ul class="list" style="margin:12px 0 10px">
    <li><b>13 livros completos</b> — +365 receitas, treinos em casa, smoothies, mindset e planner</li>
   </ul>
+  <div class="freerow ai"><span>🤖 BÔNUS GRÁTIS · Nutri IA — Nutricionista por IA (15 dias)</span><s>R$97,00</s></div>
   <div class="freerow"><span>🎁 BÔNUS GRÁTIS · Cardápio de 30 dias</span><s>R$39,90</s></div>
   <div class="freerow"><span>🎁 BÔNUS GRÁTIS · Seca a Barriga em 7 dias</span><s>R$29,90</s></div>
   <div class="freerow"><span>🎁 BÔNUS GRÁTIS · 50 Doces Fit</span><s>R$34,90</s></div>
   <div class="freerow"><span>🎁 BÔNUS GRÁTIS · Lista de Compras + Diário de Peso</span><s>R$44,80</s></div>
-  <div class="saverow">💸 Você economiza R$319 hoje</div>
-  <button class="btn big" data-checkout="super" style="margin-top:12px">QUERO TUDO E ECONOMIZAR R$319 →</button>
+  <div class="saverow">💸 Você economiza R$416 hoje</div>
+  <button class="btn big" data-checkout="super" style="margin-top:12px">QUERO TUDO + A NUTRI IA →</button>
  </div>
 
  <p class="sub" style="text-align:center;margin-top:16px">✨ No checkout você ainda pode adicionar o <b>Sucos Detox</b> por só R$9 (de R$29) pra acelerar.</p>
@@ -217,7 +244,7 @@ details{border-bottom:1px solid var(--line);padding:14px 0}summary{font-weight:8
  <p class="sub stars">★★★★★ 4,9 · centenas de alunas</p>
  <div class="rev"><div class="stars">★★★★★</div><b>Juliana M.</b> — "Achei que ia ser mais salada sem graça. Mano, tem brigadeiro fit que meu marido nem percebeu. Perdi 4kg sem sofrer."</div>
  <div class="rev"><div class="stars">★★★★★</div><b>Patrícia R.</b> — "O cardápio de 30 dias salvou minha vida, não penso mais no que comer. E é barato de fazer."</div>
- <div class="rev"><div class="stars">★★★★★</div><b>Camila F.</b> — "Melhor R$27 que gastei. Parei de pedir delivery e tô desinchando."</div>
+ <div class="rev"><div class="stars">★★★★★</div><b>Camila F.</b> — "A tal da nutri de IA é surreal, montou meu cardápio da semana em segundos. Melhor R$27 que gastei."</div>
  <div class="rev"><div class="stars">★★★★★</div><b>Ana L.</b> — "Finalmente uma dieta que eu consigo seguir porque a comida é gostosa de verdade."</div>
 </div></section>
 
@@ -244,7 +271,8 @@ details{border-bottom:1px solid var(--line);padding:14px 0}summary{font-weight:8
 <!-- FAQ -->
 <section class="alt"><div class="wrap">
  <h2>Perguntas frequentes</h2>
- <details><summary>É mensalidade?</summary><p>Não. Você paga uma vez e o acesso é vitalício.</p></details>
+ <details><summary>O que é a Nutri IA?</summary><p>É uma nutricionista com inteligência artificial dentro da área de membros. Ela monta seu cardápio de 7 dias personalizado, responde suas dúvidas no chat e analisa seus pratos por foto. Você testa 15 dias grátis no plano Completo.</p></details>
+ <details><summary>É mensalidade?</summary><p>O acesso aos livros é vitalício, você paga uma vez. A Nutri IA é grátis por 15 dias; depois, se quiser continuar usando a IA, é uma assinatura opcional de R$14,99/mês (os livros continuam seus pra sempre).</p></details>
  <details><summary>Como recebo?</summary><p>Assim que o pagamento é aprovado, você recebe o acesso à área de membros por e-mail. Abre no celular.</p></details>
  <details><summary>As receitas são difíceis?</summary><p>Não. Todas com passo a passo simples, ingredientes de mercado e prontas em minutos.</p></details>
  <details><summary>Preciso de academia?</summary><p>Não. O foco é a alimentação — o que mais pesa no emagrecimento.</p></details>
